@@ -6,8 +6,10 @@ package com.springboot.shiro.pojo;
  * @date 2019/10/8 18:12
  */
 public class UserAuthority {
+    private Integer uid;
     private String username;
     private String password;
+    private String perms;
 
     public String getUsername() {
         return username;
@@ -23,5 +25,21 @@ public class UserAuthority {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
+    public String getPerms() {
+        return perms;
+    }
+
+    public void setPerms(String perms) {
+        this.perms = perms;
     }
 }

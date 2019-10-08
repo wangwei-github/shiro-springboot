@@ -27,7 +27,10 @@ public class UserController {
     public String update() {
         return "users/update";
     }
-
+    @RequestMapping("unauthorized")
+    public String unauthorized() {
+        return "noAuth";
+    }
     @RequestMapping("toLogin")
     public String toLogin() {
         return "login";
@@ -45,7 +48,7 @@ public class UserController {
         /**
          * 使用Shiro编写认证操作
          */
-        //1.获取Subject
+        //1.获取资源权限Subject
         Subject subject = SecurityUtils.getSubject();
         //2.封装用户数据
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);

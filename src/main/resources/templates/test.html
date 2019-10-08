@@ -1,5 +1,7 @@
 <!DOCTYPE html >
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+>
 <head>
     <meta charset="UTF-8">
     <title>测试Thymeleaf的使用</title>
@@ -7,8 +9,10 @@
 <body>
 <h2 th:text="${name}"></h2>
 
-<div>进入用户添加页面<a href="add">添加操作</a></div>
+<div shiro:hasPermission="user:add">进入用户添加页面<a href="add">添加操作</a></div>
 
-<div>进入更新用户页面<a href="update"> 更新操作</a></div>
+<div shiro:hasPermission="user:update">进入更新用户页面<a href="update"> 更新操作</a></div>
+<div shiro:hasPermission="user:init">普通用户</div>
+<a href="/user/toLogin">登录</a>
 </body>
 </html>

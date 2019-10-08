@@ -6,7 +6,8 @@
 <mapper namespace="com.springboot.shiro.mapper.UserMapper">
 
     <!-- id：抽象方法的名称 -->
-    <select id="findByUsername" resultType="com.springboot.shiro.pojo.UserAuthority">
+    <!--  UserAuthority findUserByUsername(String username)-->
+    <select id="findUserByUsername" resultType="com.springboot.shiro.pojo.UserAuthority">
         SELECT username,password
         FROM
             user
@@ -14,6 +15,15 @@
          username = #{username}
     </select>
 
+    <!-- id：抽象方法的名称 -->
+    <!-- String findPermsByUsername(String username)-->
+    <select id="findPermsByUsername" resultType="java.lang.String">
+        SELECT perms
+        FROM
+            user
+        WHERE
+         username = #{username}
+    </select>
 </mapper>
 
 

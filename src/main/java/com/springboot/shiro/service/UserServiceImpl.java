@@ -14,9 +14,15 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService{
     @Autowired
     private UserMapper userMapper;
-    @Override
-    public UserAuthority findByUsername(String username) {
 
-        return userMapper.findByUsername(username);
+    @Override
+    public UserAuthority selectByUsername(String username) {
+
+        return userMapper.findUserByUsername(username);
+    }
+
+    @Override
+    public String selectPermsByUsername(String username) {
+        return userMapper.findPermsByUsername(username);
     }
 }
